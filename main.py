@@ -27,4 +27,4 @@ df = pd.DataFrame(data)
 output_path = r"C:\Users\bjhoare\OneDrive - AUCKLAND MUSEUM\Brodie's Files\Projects\FromThePage Migration\How to manage the honey bee export examples\plaintext\processed_transcript_pages.xlsx"
 df.to_excel(output_path, index=False)
 
-print(f"✅ Done! Spreadsheet saved as: {output_path}")
+print(f"Done! Spreadsheet saved as: {output_path}")
