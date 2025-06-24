@@ -1,0 +1,9 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+
+# Environments
+.venv/
+
+# PyCharm files
+.idea/
