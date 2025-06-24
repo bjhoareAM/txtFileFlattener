@@ -1,12 +1,13 @@
 import os
 import pandas as pd
 
-# Hardcoded folder where the .txt files are
-root_dir = r"C:\Users\bjhoare\OneDrive - AUCKLAND MUSEUM\Brodie's Files\Projects\FromThePage Migration\How to manage the honey bee export examples\plaintext\searchable_transcript_pages"
+# Import your local paths (this file should be excluded via .gitignore)
+from config_local import ROOT_DIR, OUTPUT_PATH
 
 data = []
 
-for subdir, _, files in os.walk(root_dir):
+# Walk through the directory tree to find .txt files
+for subdir, _, files in os.walk(ROOT_DIR):
     for file in files:
         if file.endswith(".txt"):
             file_path = os.path.join(subdir, file)
@@ -21,10 +22,8 @@ for subdir, _, files in os.walk(root_dir):
                 "Content": content
             })
 
+# Create the output Excel spreadsheet
 df = pd.DataFrame(data)
+df.to_excel(OUTPUT_PATH, index=False)
 
-# Correct: save as an .xlsx file with full path
-output_path = r"C:\Users\bjhoare\OneDrive - AUCKLAND MUSEUM\Brodie's Files\Projects\FromThePage Migration\How to manage the honey bee export examples\plaintext\processed_transcript_pages.xlsx"
-df.to_excel(output_path, index=False)
-
-print(f"Done! Spreadsheet saved as: {output_path}")
+print(f"Done! Spreadsheet saved as: {OUTPUT_PATH}")
