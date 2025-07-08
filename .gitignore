@@ -7,3 +7,6 @@ __pycache__/
 
 # PyCharm files
 .idea/
+
+# local config for root & output paths
+config_local.py
